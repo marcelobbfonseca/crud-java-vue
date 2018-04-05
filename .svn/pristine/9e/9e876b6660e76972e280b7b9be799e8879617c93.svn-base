@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>User list</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+
+    <h1>User list</h1>
+    
+    
+  <table>
+	  <tr>
+	    <th>Email</th>
+	    <th>Name</th>
+	    <th>Age</th>
+	  </tr>
+	  <tr>
+	    <td>Maria@mail.com</td>
+	    <td>Maria Anders</td>
+	    <td>30</td>
+	  </tr>
+	  <tr>
+	    <td>chang@mail.com</td>
+	    <td>Francisco Chang</td>
+	    <td>28</td>
+	  </tr>
+	  <tr>
+</table>
+    
+    
+    <div id="app">
+        {{ message }}
+    </div>
+
+	
+
+    
+    <footer>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        
+        <script>
+	        var app = new Vue({
+	        	  el: '#app',
+	        	  data: {
+	        	    message: 'Hello Vue!'
+	        	  }
+	        	})
+	        
+	        axios.get('/testevue/rest/users/getUsers')
+	        .then(function (response) {
+	          console.log(response);
+	        })
+	        .catch(function (error) {
+	          console.log(error);
+	        });
+	        
+        </script>
+    
+    </footer>
+    <style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</body>
+</html>
